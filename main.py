@@ -34,7 +34,7 @@ group_msg_to_purchase   = {}   # group_msg_id -> purchase_id
 
 PLANS = {
     "plan_10gb": {"name": "10 GB", "price": 150000},
-    "plan_20gb": {"name": "20 GB", "price": 320000},
+    "plan_20gb": {"name": "20 GB", "price": 230000},
     "plan_30gb": {"name": "30 GB", "price": 300000},
     "plan_50gb": {"name": "50 GB", "price": 480000},
     "plan_70gb": {"name": "70 GB", "price": 650000},
@@ -116,7 +116,7 @@ def cmd_start(message):
         "🌐 <b>VPN حرفه‌ای | سرعت بالا | بدون محدودیت</b>\n"
         "━━━━━━━━━━━━━━━━━━━━━━\n\n"
         "🔥 <b>پلن‌های نامحدود با قیمت باورنکردنی!</b>\n"
-        "✅ کاربر نامحدود | ✅ مدت نامحدود\n"
+        "✅ کاربر نامحدود | ✅ مدت یك ماهه\n"
         "✅ سازگار با V2Ray، V2Box، NPVtunnel، HIDDEFY\n\n"
         "━━━━━━━━━━━━━━━━━━━━━━\n"
         "🎁 <b>🎁 🎁 سیستم تخفیف دوستان 🎁 🎁 🎁</b>\n"
@@ -213,16 +213,16 @@ def show_plans(chat_id, uid):
         price = plan['price']
         if has_referrer:
             disc_price = int(price * (1 - REFERRAL_INVITEE_DISCOUNT / 100))
-            label = f"{[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
+            label = f"{'❤️‍🔥💚💛💜🤍'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
         else:
-            label = f"{[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
+            label = f"{'❤️‍🔥💚💛💜🤍'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
         markup.add(types.InlineKeyboardButton(label, callback_data=f"plan_{key.split('_',1)[1]}"))
 
     markup.add(back_btn("🔙 بازگشت", "back_main"))
 
     note = f"\n🎁 <b>شما {REFERRAL_INVITEE_DISCOUNT}٪ تخفیف دعوت‌شده دارید!</b>" if has_referrer else ""
     bot.send_message(chat_id,
-        "💎 <b>پلن‌های موجود (نامحدود):</b>\n\n"
+        "💎 <b>پلن‌های موجود:</b>\n\n"
         "✅ تعداد کاربر: <b>نامحدود</b>\n"
         "✅ مدت زمان: <b>یك ماهه</b>\n\n"
         "🚀 <b>سازگار با:</b>\n"
