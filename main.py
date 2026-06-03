@@ -33,10 +33,11 @@ group_msg_to_wallet_req = {}   # group_msg_id -> wallet_request_id
 group_msg_to_purchase   = {}   # group_msg_id -> purchase_id
 
 PLANS = {
-    "plan_10gb": {"name": "۱۰ گیگابایت", "price": 175000},
-    "plan_20gb": {"name": "۲۰ گیگابایت", "price": 325000},
-    "plan_30gb": {"name": "۳۰ گیگابایت", "price": 430000},
-    "plan_40gb": {"name": "۴۰ گیگابایت", "price": 560000},
+    "plan_10gb": {"name": "10 GB", "price": 150000},
+    "plan_20gb": {"name": "20 GB", "price": 230000},
+    "plan_30gb": {"name": "30 GB", "price": 300000},
+    "plan_50gb": {"name": "50 GB", "price": 480000},
+    "plan_70gb": {"name": "70 GB", "price": 650000},
 }
 
 def price_fmt(p):
