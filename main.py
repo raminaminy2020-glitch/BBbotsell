@@ -10,11 +10,11 @@ import database as db
 
 # =================== تنظیمات ===================
 BOT_TOKEN      = "8916477222:AAE3-k0JwJD2xbbvX_L3VsR9LHTuy5gbJrw"
-ADMIN_ID       = 7374971382
-ADMIN_USERNAME = "AIireza_1383"
+ADMIN_ID       = 8267296763
+ADMIN_USERNAME = "i5Conect"
 GROUP_ID       = -1003911905225
-CARD_NUMBER    = "5892101542283284"
-CARD_OWNER     = "علیرضا وحدانی اصل"
+CARD_NUMBER    = "5859831052695052"
+CARD_OWNER     = "یاسر خاتم خو"
 
 REFERRAL_INVITEE_DISCOUNT = 5   # درصد تخفیف برای دعوت‌شده
 REFERRAL_REFERRER_DISCOUNT = 7  # درصد تخفیف برای معرف
