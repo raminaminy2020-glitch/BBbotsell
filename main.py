@@ -10,11 +10,11 @@ import database as db
 
 # =================== تنظیمات ===================
 BOT_TOKEN      = "8916477222:AAE3-k0JwJD2xbbvX_L3VsR9LHTuy5gbJrw"
-ADMIN_ID       = 7374971382
-ADMIN_USERNAME = "AIireza_1383"
+ADMIN_ID       = 8267296763
+ADMIN_USERNAME = "i5Conect"
 GROUP_ID       = -1003911905225
-CARD_NUMBER    = "5892101542283284"
-CARD_OWNER     = "علیرضا وحدانی اصل"
+CARD_NUMBER    = "5859831052695052"
+CARD_OWNER     = "یاسر خاتم خو"
 
 REFERRAL_INVITEE_DISCOUNT = 5   # درصد تخفیف برای دعوت‌شده
 REFERRAL_REFERRER_DISCOUNT = 7  # درصد تخفیف برای معرف
@@ -33,10 +33,11 @@ group_msg_to_wallet_req = {}   # group_msg_id -> wallet_request_id
 group_msg_to_purchase   = {}   # group_msg_id -> purchase_id
 
 PLANS = {
-    "plan_10gb": {"name": "۱۰ گیگابایت", "price": 175000},
-    "plan_20gb": {"name": "۲۰ گیگابایت", "price": 325000},
-    "plan_30gb": {"name": "۳۰ گیگابایت", "price": 430000},
-    "plan_40gb": {"name": "۴۰ گیگابایت", "price": 560000},
+    "plan_10gb": {"name": "10 GB", "price": 150000},
+    "plan_20gb": {"name": "20 GB", "price": 320000},
+    "plan_30gb": {"name": "30 GB", "price": 300000},
+    "plan_50gb": {"name": "50 GB", "price": 480000},
+    "plan_70gb": {"name": "70 GB", "price": 650000},
 }
 
 def price_fmt(p):
@@ -212,9 +213,9 @@ def show_plans(chat_id, uid):
         price = plan['price']
         if has_referrer:
             disc_price = int(price * (1 - REFERRAL_INVITEE_DISCOUNT / 100))
-            label = f"{'🩵💙🩷❤️‍🔥'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
+            label = f"{[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
         else:
-            label = f"{'🩵💙🩷❤️‍🔥'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
+            label = f"{[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
         markup.add(types.InlineKeyboardButton(label, callback_data=f"plan_{key.split('_',1)[1]}"))
 
     markup.add(back_btn("🔙 بازگشت", "back_main"))
@@ -223,7 +224,7 @@ def show_plans(chat_id, uid):
     bot.send_message(chat_id,
         "💎 <b>پلن‌های موجود (نامحدود):</b>\n\n"
         "✅ تعداد کاربر: <b>نامحدود</b>\n"
-        "✅ مدت زمان: <b>نامحدود</b>\n\n"
+        "✅ مدت زمان: <b>یك ماهه</b>\n\n"
         "🚀 <b>سازگار با:</b>\n"
         "📶 V2RAY  |  ⚫ V2BOX\n"
         "🔐 NPVtunnel  |  🔐 HIDDEFY\n"
