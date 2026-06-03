@@ -213,9 +213,9 @@ def show_plans(chat_id, uid):
         price = plan['price']
         if has_referrer:
             disc_price = int(price * (1 - REFERRAL_INVITEE_DISCOUNT / 100))
-            label = f"{'❤️‍🔥💚💛💜🤍'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
+            label = f"{'✨✨✨✨✨'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
         else:
-            label = f"{'❤️‍🔥💚💛💜🤍'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
+            label = f"{'✨✨✨✨✨'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
         markup.add(types.InlineKeyboardButton(label, callback_data=f"plan_{key.split('_',1)[1]}"))
 
     markup.add(back_btn("🔙 بازگشت", "back_main"))
