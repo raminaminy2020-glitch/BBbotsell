@@ -56,10 +56,10 @@ def run_web():
 def main_menu():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     markup.add(
-        types.KeyboardButton("🛒 خرید کانفیگ"),
-        types.KeyboardButton("👛 کیف پول"),
-        types.KeyboardButton("👤 حساب من"),
-        types.KeyboardButton("👨‍💻 پشتیبانی"),
+        types.KeyboardButton("خرید سرویس جدید 🛒"),
+        types.KeyboardButton("کیف پول 💰"),
+        types.KeyboardButton("حساب من 👤"),
+        types.KeyboardButton("پشتیبانی 👨‍💻"),
     )
     return markup
 
