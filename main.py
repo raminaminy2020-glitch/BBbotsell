@@ -41,7 +41,7 @@ PLANS = {
 }
 
 def price_fmt(p):
-    return f"{p:,}".replace(",") + " تومان"
+    return f"{p:,}".replace("," , "،" ) + " تومان"
 
 
 @app.route('/')
