@@ -262,7 +262,7 @@ def cb_plan(call):
     bot.edit_message_text(
         f"✅ پلن <b>{plan['name']}</b> انتخاب شد.\n\n"
         "📝 لطفاً یک <b>نام انگلیسی</b> برای کانفیگ خود وارد کنید:\n"
-        "⚠️ <i>فقط حروف انگلیسی — مثال: Yaser_Khatam</i>",
+        "⚠️ <i>فقط حروف انگلیسی — مثال: Yaser</i>",
         call.message.chat.id, call.message.message_id,
         parse_mode="HTML", reply_markup=markup)
 
@@ -272,7 +272,7 @@ def handle_config_name(message, uid):
     if not re.match(r'^[a-zA-Z][a-zA-Z0-9 ]*$', name):
         bot.send_message(uid,
             "❌ نام باید فقط از <b>حروف انگلیسی</b> باشد.\n"
-            "مثال: <code>Yaser_Khatam</code>\n\nدوباره وارد کنید:",
+            "مثال: <code>Yaser</code>\n\nدوباره وارد کنید:",
             parse_mode="HTML")
         return
 
