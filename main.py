@@ -112,22 +112,12 @@ def cmd_start(message):
 
     welcome = (
         f"🎉 <b>سلام {message.from_user.first_name} عزیز، خوش اومدی!</b>\n\n"
-        "━━━━━━━━━━━━━━━━━━━━━━\n"
-        "🌐 <b>VPN حرفه‌ای | سرعت بالا | بدون محدودیت</b>\n"
-        "━━━━━━━━━━━━━━━━━━━━━━\n\n"
-        "🔥 <b>پلن‌های نامحدود با قیمت باورنکردنی!</b>\n"
+        "🌐 <b> اتصال پایدار | سرعت بالا | بدون محدودیت کاربر</b>\n"
+        "🔥 <b>پلن‌های فیلترشکن با قیمت باورنکردنی!</b>\n"
         "✅ کاربر نامحدود | ✅ مدت یك ماهه\n"
-        "✅ سازگار با V2Ray، V2Box، NPVtunnel، HIDDEFY\n\n"
+        "✅ سازگار با v2rayNG ، V2Box ، NPVtunnel ، HIDDEFY\n\n"
         "━━━━━━━━━━━━━━━━━━━━━━\n"
-        "🎁 <b>🎁 🎁 سیستم تخفیف دوستان 🎁 🎁 🎁</b>\n"
-        "━━━━━━━━━━━━━━━━━━━━━━\n\n"
-        f"🔗 لینک دعوت اختصاصی تو:\n<code>{ref_link}</code>\n\n"
-        f"👥 هر دوستی که با لینک تو بیاد و خرید کنه:\n"
-        f"  ➡️ <b>دوستت {REFERRAL_INVITEE_DISCOUNT}٪ تخفیف</b> روی اولین خریدش می‌گیره\n"
-        f"  ➡️ <b>تو {REFERRAL_REFERRER_DISCOUNT}٪ تخفیف</b> روی خرید بعدیت می‌گیری\n\n"
-        f"🏆 <b>هر {REFERRAL_REWARD_EVERY} نفر که دعوت کنی و خرید کنن = {REFERRAL_REWARD_GB} گیگابایت رایگان هدیه!</b>\n\n"
-        "━━━━━━━━━━━━━━━━━━━━━━\n"
-        "👇 از منو زیر شروع کن:"
+        "👇 از منوي زیر شروع کن:"
     )
     bot.send_message(message.chat.id, welcome, parse_mode="HTML", reply_markup=main_menu())
 
