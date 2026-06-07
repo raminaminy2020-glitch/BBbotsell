@@ -115,12 +115,11 @@ def cmd_start(message):
         "🌐 <b> اتصال پایدار|سرعت بالا|بدون محدودیت کاربر</b>\n"
         "🔥 <b>پلن‌های فیلترشکن با قیمت باورنکردنی!</b>\n"
         "✅ کاربر نامحدود✅ | مدت یك ماهه\n"
-        "✅ سازگار با \n\n"
-        "v2rayNG\n\n"
-        "V2Box\n\n"
-        "NPVtunnel\n\n"
-        "HIDDEFY\n\n"
-        "━━━━━━━━━━━━━━━━━━━━━━\n"
+        "✅ سازگار با اپلیکیشن هاي زیر :\n"
+        "v2rayNG 🌸\n"
+        "V2Box 🌸\n"
+        "NPVtunnel 🌸\n"
+        "HIDDEFY 🌸\n"
         "👇 از منوي زیر شروع کن:"
     )
     bot.send_message(message.chat.id, welcome, parse_mode="HTML", reply_markup=main_menu())
