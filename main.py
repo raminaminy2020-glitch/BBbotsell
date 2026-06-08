@@ -120,7 +120,7 @@ def cmd_start(message):
         "V2Box\n"
         "NPVtunnel\n"
         "HIDDEFY\n"
-        "👇 از منوي زیر شروع کن:"
+        "از منوي زیر شروع کن : 👇"
     )
     bot.send_message(message.chat.id, welcome, parse_mode="HTML", reply_markup=main_menu())
 
