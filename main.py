@@ -112,9 +112,9 @@ def cmd_start(message):
 
     welcome = (
         f"🎉 <b>سلام {message.from_user.first_name} عزیز، خوش اومدی!</b>\n\n"
-        "🌐 <b> اتصال پایدار | سرعت بالا</b>/n"
-        "🔥 <b>پلن‌های فیلترشکن با قیمت باورنکردنی!</b>/n"
-        "✔️ <b> کاربر : نامحدود | ✔️ مدت : یك ماهه<b>/n"
+        "🔥 <b>پلن‌های فیلترشکن با قیمت باورنکردنی!</b>\n"
+        "🌐 <b>اتصال پایدار | سرعت بالا</b>\n"
+        "کاربر : نامحدود | ✔️ مدت : یك ماهه\n"
         "از منوي زیر شروع کن : 👇"
     )
     bot.send_message(message.chat.id, welcome, parse_mode="HTML", reply_markup=main_menu())
