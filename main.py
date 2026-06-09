@@ -111,11 +111,13 @@ def cmd_start(message):
     ref_link = f"https://t.me/{bot.get_me().username}?start={user['referral_code']}"
 
     welcome = (
-        f"🎉 <b>سلام {message.from_user.first_name} عزیز، خوش اومدی!</b>\n\n"
-        "🔥 <b>پلن‌های فیلترشکن با قیمت باورنکردنی!</b>\n"
-        "🌐 <b>اتصال پایدار | سرعت بالا</b>\n"
-        "کاربر : نامحدود | ✔️ مدت : یك ماهه\n"
-        "از منوي زیر شروع کن : 👇"
+    f"🎉 <b>سلام {message.from_user.first_name} عزیز، خوش اومدی!</b>\n\n"
+    "🔥 <b>پلن‌های فیلترشکن با قیمت باورنکردنی!</b>\n\n"
+    "🌐 <b>اتصال پایدار | سرعت بالا</b>\n\n"
+    "👥 <b>کاربر: نامحدود</b> | 📅 <b>مدت: یک ماهه</b>\n\n"
+    "🚀 <b>سازگار با تمامی اپراتورها</b>\n"
+    "📱 <b>اندروید | آیفون | ویندوز</b>\n\n"
+    "👇 <b>از منوی زیر گزینه موردنظر خود را انتخاب کنید.</b>"
     )
     bot.send_message(message.chat.id, welcome, parse_mode="HTML", reply_markup=main_menu())
 
