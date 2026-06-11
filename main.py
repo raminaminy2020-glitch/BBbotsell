@@ -44,7 +44,7 @@ def price_fmt(p):
     return f"{p:,}".replace("," , "،" ) + " تومان"
 
 
-@app.route('/'6)
+@app.route('/')
 def home():
     return "Bot is running!", 200
 
