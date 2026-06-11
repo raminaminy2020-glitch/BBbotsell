@@ -1,4 +1,4 @@
-mise use python@3.11
+mise use python@3.13.14
 
 WORKDIR /code
 
