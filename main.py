@@ -141,30 +141,7 @@ def handle_private(message):
 
     if message.content_type == 'text':
         txt = message.text.strip()
-
-        # ── منوی اصلی ──
-        if txt == "🛒 خرید کانفیگ":
-            user_states.pop(uid, None)
-            show_plans(message.chat.id, uid)
-            return
-
-        if txt == "👛 کیف پول":
-            user_states.pop(uid, None)
-            show_wallet(message.chat.id, uid)
-            return
-
-        if txt == "👤 حساب من":
-            user_states.pop(uid, None)
-            show_account(message.chat.id, uid)
-            return
-
-        if txt == "👨‍💻 پشتیبانی":
-            mk = types.InlineKeyboardMarkup()
-            mk.add(types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", url=f"https://t.me/{ADMIN_USERNAME}"))
-            bot.send_message(message.chat.id,
-                "👨‍💻 <b>پشتیبانی</b>\n\nبرای سوال یا پیگیری سفارش روی دکمه زیر بزنید:",
-                parse_mode="HTML", reply_markup=mk)
-            return
+        
 
         # ── مراحل خرید ──
         if state == 'waiting_config_name':
