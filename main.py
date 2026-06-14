@@ -54,13 +54,18 @@ def run_web():
 
 # ─── منوی اصلی ───
 def main_menu():
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    markup = types.InlineKeyboardMarkup(row_width=2)
+
     markup.add(
-        types.KeyboardButton("🛒 خرید کانفیگ"),
-        types.KeyboardButton("👛 کیف پول"),
-        types.KeyboardButton("👤 حساب من"),
-        types.KeyboardButton("👨‍💻 پشتیبانی"),
+        types.InlineKeyboardButton("🛒 خرید کانفیگ", callback_data="menu_buy"),
+        types.InlineKeyboardButton("👛 کیف پول", callback_data="menu_wallet")
     )
+
+    markup.add(
+        types.InlineKeyboardButton("👤 حساب من", callback_data="menu_account"),
+        types.InlineKeyboardButton("👨‍💻 پشتیبانی", callback_data="menu_support")
+    )
+
     return markup
 
 
@@ -582,7 +587,7 @@ def handle_wallet_receipt(message, uid):
     except Exception as e:
         print(f"[ERROR wallet receipt] {e}")
         bot.send_message(uid, "⚠️ خطا در ثبت. دوباره رسید را ارسال کنید.")
-
+        
 
 # ══════════════════════════════════════════════
 #  حساب من
@@ -632,7 +637,39 @@ def cb_reconfig(call):
         f"<code>{purchase['config_data']}</code>",
         parse_mode="HTML")
 
+@bot.callback_query_handler(func=lambda c: c.data.startswith("menu_"))
+def menu_callbacks(call):
+    uid = call.from_user.id
 
+    if call.data == "menu_buy":
+        user_states.pop(uid, None)
+        show_plans(call.message.chat.id, uid)
+
+    elif call.data == "menu_wallet":
+        user_states.pop(uid, None)
+        show_wallet(call.message.chat.id, uid)
+
+    elif call.data == "menu_account":
+        user_states.pop(uid, None)
+        show_account(call.message.chat.id, uid)
+
+    elif call.data == "menu_support":
+        mk = types.InlineKeyboardMarkup()
+        mk.add(
+            types.InlineKeyboardButton(
+                "💬 ارتباط با پشتیبانی",
+                url=f"https://t.me/{ADMIN_USERNAME}"
+            )
+        )
+
+        bot.send_message(
+            call.message.chat.id,
+            "👨‍💻 پشتیبانی\n\nبرای ارتباط روی دکمه زیر کلیک کنید:",
+            reply_markup=mk
+        )
+
+    bot.answer_callback_query(call.id)
+    
 # ══════════════════════════════════════════════
 #  دکمه‌های بازگشت
 # ══════════════════════════════════════════════
