@@ -151,13 +151,19 @@ def menu_handler(call):
     chat_id = call.message.chat.id
 
     if call.data == "buy_config":
-        bot.edit_message_text("🛒 بخش خرید کانفیگ", chat_id, call.message.message_id, reply_markup=main_menu())
+        bot.edit_message_text("🛒 بخش خرید کانفیگ", chat_id, call.message.message_id, reply_markup=main_menu(
+            
+        )
 
     elif call.data == "wallet":
-        bot.edit_message_text("👛 کیف پول شما", chat_id, call.message.message_id, reply_markup=main_menu())
+        bot.edit_message_text("👛 کیف پول شما", chat_id, call.message.message_id, reply_markup=main_menu(
+        
+        )
 
     elif call.data == "account":
-        bot.edit_message_text("👤 اطلاعات حساب شما", chat_id, call.message.message_id, reply_markup=main_menu())
+        bot.edit_message_text("👤 اطلاعات حساب شما", chat_id, call.message.message_id, reply_markup=main_menu(
+            
+        )
 
     elif call.data == "support":
         bot.edit_message_text("👨‍💻 پشتیبانی: @YourSupportID", chat_id, call.message.message_id, reply_markup=main_menu(
