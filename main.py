@@ -53,14 +53,21 @@ def run_web():
 
 
 # ─── منوی اصلی ───
+from telebot import types
+
 def main_menu():
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
+    markup = types.InlineKeyboardMarkup(row_width=2)
+
     markup.add(
-        types.KeyboardButton("🛒 خرید کانفیگ"),
-        types.KeyboardButton("👛 کیف پول"),
-        types.KeyboardButton("👤 حساب من"),
-        types.KeyboardButton("👨‍💻 پشتیبانی"),
+        types.InlineKeyboardButton("🛒 خرید کانفیگ", callback_data="buy_config"),
+        types.InlineKeyboardButton("👛 کیف پول", callback_data="wallet"),
     )
+
+    markup.add(
+        types.InlineKeyboardButton("👤 حساب من", callback_data="account"),
+        types.InlineKeyboardButton("👨‍💻 پشتیبانی", callback_data="support"),
+    )
+
     return markup
 
 
@@ -139,28 +146,23 @@ def handle_private(message):
 
         # ── منوی اصلی ──
         if txt == "🛒 خرید کانفیگ":
-            user_states.pop(uid, None)
-            show_plans(message.chat.id, uid)
-            return
+        @bot.callback_query_handler(func=lambda call: True)
+def menu_handler(call):
+    chat_id = call.message.chat.id
 
-        if txt == "👛 کیف پول":
-            user_states.pop(uid, None)
-            show_wallet(message.chat.id, uid)
-            return
+    if call.data == "buy_config":
+        bot.edit_message_text("🛒 بخش خرید کانفیگ", chat_id, call.message.message_id, reply_markup=main_menu())
 
-        if txt == "👤 حساب من":
-            user_states.pop(uid, None)
-            show_account(message.chat.id, uid)
-            return
+    elif call.data == "wallet":
+        bot.edit_message_text("👛 کیف پول شما", chat_id, call.message.message_id, reply_markup=main_menu())
 
-        if txt == "👨‍💻 پشتیبانی":
-            mk = types.InlineKeyboardMarkup()
-            mk.add(types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", url=f"https://t.me/{ADMIN_USERNAME}"))
-            bot.send_message(message.chat.id,
-                "👨‍💻 <b>پشتیبانی</b>\n\nبرای سوال یا پیگیری سفارش روی دکمه زیر بزنید:",
-                parse_mode="HTML", reply_markup=mk)
-            return
+    elif call.data == "account":
+        bot.edit_message_text("👤 اطلاعات حساب شما", chat_id, call.message.message_id, reply_markup=main_menu())
 
+    elif call.data == "support":
+        bot.edit_message_text("👨‍💻 پشتیبانی: @YourSupportID", chat_id, call.message.message_id, reply_markup=main_menu(
+            
+        )
         # ── مراحل خرید ──
         if state == 'waiting_config_name':
             handle_config_name(message, uid)
