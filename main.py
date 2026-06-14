@@ -159,9 +159,12 @@ def start(message):
 
 
 @bot.callback_query_handler(func=lambda call: True)
-def callback_handler(call):
+def menu_handler(call):
+    markup = types.InlineKeyboardMarkup()
+
     if call.data == "buy":
-        bot.send_message(call.message.chat.id, "بخش خرید 🛒")
+        bot.send_message(call.message.chat.id, "خرید 🛒")
+        
 
     elif call.data == "wallet":
         bot.send_message(call.message.chat.id, "کیف پول 👛")
