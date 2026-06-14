@@ -144,7 +144,7 @@ def handle_private(message):
         # ── منوی اصلی ──
     def main_menu():
     markup = types.InlineKeyboardMarkup()
-    
+
     markup.add(
         types.InlineKeyboardButton("🛒 خرید", callback_data="buy"),
         types.InlineKeyboardButton("👛 کیف پول", callback_data="wallet")
