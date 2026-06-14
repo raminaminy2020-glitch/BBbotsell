@@ -53,14 +53,18 @@ def run_web():
 
 
 # ─── منوی اصلی ───
+from telebot import types
+
 def main_menu():
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    markup.add(
-        types.KeyboardButton("🛒 خرید کانفیگ"),
-        types.KeyboardButton("👛 کیف پول"),
-        types.KeyboardButton("👤 حساب من"),
-        types.KeyboardButton("👨‍💻 پشتیبانی"),
-    )
+    markup = types.InlineKeyboardMarkup(row_width=2)
+
+    btn1 = types.InlineKeyboardButton("🛒 خرید کانفیگ", callback_data="buy_config")
+    btn2 = types.InlineKeyboardButton("👛 کیف پول", callback_data="wallet")
+    btn3 = types.InlineKeyboardButton("👤 حساب من", callback_data="account")
+    btn4 = types.InlineKeyboardButton("👨‍💻 پشتیبانی", callback_data="support")
+
+    markup.add(btn1, btn2, btn3, btn4)
+    
     return markup
 
 
@@ -138,28 +142,30 @@ def handle_private(message):
         txt = message.text.strip()
 
         # ── منوی اصلی ──
-        if txt == "🛒 خرید کانفیگ":
-            user_states.pop(uid, None)
-            show_plans(message.chat.id, uid)
-            return
+        def main_menu():
+    markup = types.InlineKeyboardMarkup()
 
-        if txt == "👛 کیف پول":
-            user_states.pop(uid, None)
-            show_wallet(message.chat.id, uid)
-            return
+    markup.add(
+        types.InlineKeyboardButton("🛒 خرید", callback_data="buy"),
+        types.InlineKeyboardButton("👛 کیف پول", callback_data="wallet")
+    )
 
-        if txt == "👤 حساب من":
-            user_states.pop(uid, None)
-            show_account(message.chat.id, uid)
-            return
+    return markup
 
-        if txt == "👨‍💻 پشتیبانی":
-            mk = types.InlineKeyboardMarkup()
-            mk.add(types.InlineKeyboardButton("💬 ارتباط با پشتیبانی", url=f"https://t.me/{ADMIN_USERNAME}"))
-            bot.send_message(message.chat.id,
-                "👨‍💻 <b>پشتیبانی</b>\n\nبرای سوال یا پیگیری سفارش روی دکمه زیر بزنید:",
-                parse_mode="HTML", reply_markup=mk)
-            return
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, "خوش آمدی 👇", reply_markup=main_menu())
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def callback_handler(call):
+    if call.data == "buy":
+        bot.send_message(call.message.chat.id, "بخش خرید 🛒")
+
+    elif call.data == "wallet":
+        bot.send_message(call.message.chat.id, "کیف پول 👛")
+        
 
         # ── مراحل خرید ──
         if state == 'waiting_config_name':
