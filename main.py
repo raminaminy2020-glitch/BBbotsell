@@ -194,21 +194,6 @@ def handle_private(message):
 # ══════════════════════════════════════════════
 #  خرید کانفیگ
 # ══════════════════════════════════════════════
-def show_plans(chat_id, uid):
-    user = db.get_user(uid)
-    has_referrer = user['referred_by'] is not None
-
-    markup = types.InlineKeyboardMarkup(row_width=1)
-    for key, plan in PLANS.items():
-        price = plan['price']
-        if has_referrer:
-            disc_price = int(price * (1 - REFERRAL_INVITEE_DISCOUNT / 100))
-            label = f"{'✨✨✨✨✨'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(disc_price)}  🎁{REFERRAL_INVITEE_DISCOUNT}٪تخفیف"
-        else:
-            label = f"{'✨✨✨✨✨'[list(PLANS.keys()).index(key)]}  {plan['name']}  ─  {price_fmt(price)}"
-        markup.add(types.InlineKeyboardButton(label, callback_data=f"plan_{key.split('_',1)[1]}"))
-
-    markup.add(back_btn("🔙 بازگشت", "back_main"))
 
     note = f"\n🎁 <b>شما {REFERRAL_INVITEE_DISCOUNT}٪ تخفیف دعوت‌شده دارید!</b>" if has_referrer else ""
     bot.send_message(chat_id,
