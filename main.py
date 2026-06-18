@@ -11,7 +11,7 @@ import database as db
 # =================== تنظیمات ===================
 BOT_TOKEN      = "8820664006:AAGTbiLROAPwl3a4KuwKCcj0iVI_5ExuBV0"
 ADMIN_ID       = 8267296763
-ADMIN_USERNAME = "i5Conect"
+ADMIN_USERNAME = "Yaser_khatam"
 GROUP_ID       = -1003721216621
 CARD_NUMBER    = "5859831052695052"
 CARD_OWNER     = "یاسر خاتم خو"
