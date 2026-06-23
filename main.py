@@ -12,7 +12,7 @@ import database as db
 BOT_TOKEN      = "8832223696:AAE_0wox57BXsQlV-oychCa2DskmS_YS8SY"
 ADMIN_ID       = 8267296763
 ADMIN_USERNAME = "Yaser_khatam"
-GROUP_ID       = -1003721216621
+GROUP_ID       = -1004453816460
 CARD_NUMBER    = "5892101744766037"
 CARD_OWNER     = "یاسر خاتم خو"
 
