@@ -9,11 +9,11 @@ import re
 import database as db
 
 # =================== تنظیمات ===================
-BOT_TOKEN      = "8820664006:AAFuoIYeJlZXCac8GJHgdfCN31FQopyVtZw"
+BOT_TOKEN      = "8832223696:AAE_0wox57BXsQlV-oychCa2DskmS_YS8SY"
 ADMIN_ID       = 8267296763
 ADMIN_USERNAME = "Yaser_khatam"
 GROUP_ID       = -1003721216621
-CARD_NUMBER    = "5859831052695052"
+CARD_NUMBER    = "5859471124688098"
 CARD_OWNER     = "یاسر خاتم خو"
 
 REFERRAL_INVITEE_DISCOUNT = 5   # درصد تخفیف برای دعوت‌شده
